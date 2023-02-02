@@ -1,0 +1,28 @@
+name: Update binaries
+
+on: [workflow_dispatch]
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Cache ccache data
+        uses: actions/cache@v3
+        with:
+          path: cache
+          key: ${{ runner.os }}-ccache
+          restore-keys: ${{ runner.os }}-ccache
+      - name: Rebuild binaries
+        run: |
+          ./build.sh
+      - name: Commit changes
+        run: |
+          git add -A
+          git config user.email "builder@wokwi.com"
+          git config user.name "Wokwi Builder"
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "chore: autobuild $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          fi
+      - name: Push changes
+        run: git push
