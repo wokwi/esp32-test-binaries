@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# IDF 4.4 doesn't support reproducible builds, so we have a separate scrpit that we run manually.
+# We also need to patch the WiFi station example, because it lacks CONFIG_ESP_WIFI_AUTH_OPEN
+
 build() {
   IDF_VERSION="$1"
   APP_PATH="$2"
@@ -28,6 +31,5 @@ APPS="
 "
 
 for APP in $APPS; do
-  build v5.0 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3"
-  build latest $APP "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
+  build v4.4 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3"
 done
