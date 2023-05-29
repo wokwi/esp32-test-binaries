@@ -1,6 +1,9 @@
 name: Update binaries
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "42 1 * * 0"
 
 jobs:
   build-and-commit:
