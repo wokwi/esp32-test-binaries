@@ -31,5 +31,5 @@ APPS="
 "
 
 for APP in $APPS; do
-  build v4.4 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3"
+  build release-v4.4 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3"
 done
