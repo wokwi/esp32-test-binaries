@@ -8,7 +8,7 @@ build() {
     TARGET_DIR=bin/$CHIP/idf/$IDF_VERSION/$APP_PATH
     mkdir -p $TARGET_DIR
     echo $(pwd)/config/$APP_PATH
-    docker run -e "IDF_TARGET=$CHIP" -e "IDF_VERSION=$IDF_VERSION" \
+    docker run --rm -e "IDF_TARGET=$CHIP" -e "IDF_VERSION=$IDF_VERSION" \
       -v "$(pwd)/$TARGET_DIR:/output" -v "$(pwd)/cache/${IDF_VERSION}:/root/.ccache" \
       -v "$(pwd)/config/$APP_PATH:/config:ro" \
       espressif/idf:$IDF_VERSION \
