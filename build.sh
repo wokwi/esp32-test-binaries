@@ -38,3 +38,5 @@ for APP in $APPS; do
     build latest "$APP" "esp32h2 esp32p4"
   fi
 done
+
+build latest examples/peripherals/i2c/i2c_simple "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6 esp32h2 esp32p4"
