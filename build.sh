@@ -44,3 +44,4 @@ done
 build latest examples/peripherals/i2c/i2c_simple "$ALL_CHIPS"
 build latest examples/peripherals/spi_slave/sender "$ALL_CHIPS"
 build latest components/mbedtls/test_apps "$ALL_CHIPS"
+build latest components/hal/test_apps/crypto "$ALL_CHIPS"
