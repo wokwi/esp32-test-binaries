@@ -8,24 +8,30 @@ on:
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [release-v5.0, release-v5.1, release-v5.2, latest]
     steps:
       - uses: actions/checkout@v4
       - name: Cache ccache data
         uses: actions/cache@v4
         with:
           path: cache
-          key: ${{ runner.os }}-ccache
-          restore-keys: ${{ runner.os }}-ccache
+          key: ${{ runner.os }}-ccache-${{ matrix.version }}
+          restore-keys: ${{ runner.os }}-ccache-${{ matrix.version }}
       - name: Rebuild binaries
         run: |
           ./build.sh
+        env:
+          BUILD_IDF_VERSION: ${{ matrix.version }}
       - name: Commit changes
         run: |
+          git pull
           git add -A
           git config user.email "builder@wokwi.com"
           git config user.name "Wokwi Builder"
           if ! git diff-index --quiet HEAD; then
-            git commit -m "chore: autobuild $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git commit -m "chore: autobuild ${{ matrix.version }} $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           fi
       - name: Push changes
         run: git push

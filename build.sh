@@ -6,6 +6,9 @@ build() {
   IDF_VERSION="$1"
   APP_PATH="$2"
   CHIPS="$3"
+  if [ -n "$BUILD_IDF_VERSION" ] && [ "$BUILD_IDF_VERSION" != "$IDF_VERSION" ]; then
+    return # Skip
+  fi
   for CHIP in $CHIPS; do
     TARGET_DIR=bin/$CHIP/idf/$IDF_VERSION/$APP_PATH
     mkdir -p $TARGET_DIR
