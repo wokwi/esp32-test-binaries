@@ -8,7 +8,7 @@
       "id": "esp",
       "top": 0,
       "left": 0,
-      "attrs": { "fullBoot": "1" }
+      "attrs": { "psramSize": "8" }
     }
   ],
   "connections": [
