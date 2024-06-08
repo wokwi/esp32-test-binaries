@@ -1,0 +1,42 @@
+name: Test in Wokwi
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: '42 5 * * *'
+
+jobs:
+  test-hello-world:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        idf_version:
+          - release-v4.4
+          - release-v5.0
+          - release-v5.1
+          - release-v5.2
+          - latest
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - run: pip install -r test/requirements.txt
+
+      - name: Run a Wokwi CI server
+        uses: wokwi/wokwi-ci-server-action@v1
+
+      - name: Install Wokwi CLI
+        run: curl -L https://wokwi.com/ci/install.sh | sh
+
+      - name: Test on Wokwi
+        working-directory: test
+        run: pytest test_hello_world.py
+        env:
+          IDF_VERSION: ${{ matrix.idf_version }}
+          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
