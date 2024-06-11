@@ -8,7 +8,7 @@ expected_adc2_0 = "EXAMPLE: ADC2 Channel[0] Raw Data: 2050"
 expected_text = {
     "esp32": expected_adc2_0,
     "esp32s2": expected_adc2_0,
-    "esp32s3": expected_adc2_0,  # Currently broken
+    "esp32s3": expected_adc2_0,
     "esp32c3": expected_adc1_3,
     "esp32c6": expected_adc1_3,
     "esp32h2": expected_adc1_3,
@@ -16,7 +16,9 @@ expected_text = {
 }
 
 
-@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32c3", "esp32c6", "esp32h2"])
+@pytest.mark.parametrize(
+    "chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"]
+)
 def test_hello_world(chip: str):
 
     # Run the Wokwi CLI
@@ -26,7 +28,7 @@ def test_hello_world(chip: str):
             "--elf",
             f"../bin/{chip}/idf/latest/examples/peripherals/adc/oneshot_read/firmware.uf2",
             "--timeout",
-            "60000",
+            "5000",
             "--expect-text",
             expected_text[chip],
             "--diagram-file",
