@@ -9,14 +9,22 @@
       "top": 0,
       "left": 0,
       "attrs": { "psramSize": "8" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": 33.8,
+      "left": 162.2,
+      "attrs": { "travelLength": "30", "value": "512" }
     }
   ],
   "connections": [
-    ["esp:TX0", "$serialMonitor:RX", "", []],
-    ["esp:RX0", "$serialMonitor:TX", "", []]
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "h-19.2", "v76.8" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:D4", "green", [ "h-28.8", "v37.6" ] ]
   ],
-  "serialMonitor": {
-    "display": "terminal"
-  },
+  "serialMonitor": { "display": "terminal" },
   "dependencies": {}
 }
