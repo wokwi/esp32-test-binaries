@@ -1,0 +1,6 @@
+CONFIG_APP_REPRODUCIBLE_BUILD=y
+# CONFIG_APP_COMPILE_TIME_DATE is not set
+CONFIG_FREERTOS_HZ=1000
+CONFIG_ESP_TASK_WDT_INIT=n
+# Disable memory protection, because "LEDC continue work after software reset" test case requires a cpu reset
+CONFIG_ESP_SYSTEM_MEMPROT_FEATURE=n
