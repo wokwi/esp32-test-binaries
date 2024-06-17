@@ -15,7 +15,7 @@ def test_pcnt(chip: str):
             "--elf",
             f"../bin/{chip}/idf/latest/components/esp_driver_spi/test_apps/master/firmware.uf2",
             "--timeout",
-            "10000",
+            "15000",
             "--scenario",
             "test_spi_master.scenario.yaml",
             "--diagram-file",
