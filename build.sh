@@ -46,10 +46,12 @@ for APP in $APPS; do
 done
 
 build latest components/driver/test_apps/twai "$ALL_CHIPS_BUT_C2"
+build latest components/esp_driver_i2c/test_apps/i2c_test_apps "$ALL_CHIPS"
 build latest components/esp_driver_i2s/test_apps/i2s "$ALL_CHIPS_BUT_C2"
 build latest components/esp_driver_ledc/test_apps/ledc "$ALL_CHIPS"
 build latest components/esp_driver_pcnt/test_apps/pulse_cnt "esp32 esp32s2 esp32s3 esp32c6 esp32h2 esp32p4"
 build latest components/esp_driver_spi/test_apps/master "$ALL_CHIPS"
+build latest components/esp_driver_uart/test_apps/uart "$ALL_CHIPS"
 build latest components/esp_psram/test_apps/psram "esp32 esp32s2 esp32s3 esp32p4"
 build latest components/esp_wifi/test_apps/wifi_function "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
 build latest components/hal/test_apps/crypto "$ALL_CHIPS"
