@@ -1,0 +1,22 @@
+name: UART Unity Tests
+version: 1
+author: Uri Shaked
+
+steps:
+  - wait-serial: "Press ENTER to see the list of tests"
+  - write-serial: "*\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "7 Tests 0 Failures 0 Ignored"
