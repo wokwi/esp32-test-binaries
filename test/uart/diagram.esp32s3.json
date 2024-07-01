@@ -8,7 +8,7 @@
       "id": "esp",
       "top": -0.18,
       "left": 4.57,
-      "attrs": { "__timingOptimizations": "disable", "psramSize": "16" }
+      "attrs": { "cpuFrequency": "16", "psramSize": "16" }
     }
   ],
   "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],

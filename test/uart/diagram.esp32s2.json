@@ -8,7 +8,7 @@
       "id": "esp",
       "top": -13.91,
       "left": 4.57,
-      "attrs": { "__timingOptimizations": "disable" }
+      "attrs": { "cpuFrequency": "16" }
     }
   ],
   "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],
