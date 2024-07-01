@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "cpuFrequency": "80" }
+    },
+    { "type": "chip-spi-flash", "id": "flash1", "top": 57.6, "left": 172.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "flash1:MOSI", "esp:23", "green", [ "h-38.4", "v-28.8" ] ],
+    [ "flash1:MISO", "esp:19", "green", [ "h-38.4", "v9.6" ] ],
+    [ "flash1:SCK", "esp:18", "green", [ "h-28.8", "v19.2" ] ],
+    [ "flash1:CS", "esp:5", "green", [ "h-19.2", "v19.2" ] ]
+  ],
+  "dependencies": {}
+}

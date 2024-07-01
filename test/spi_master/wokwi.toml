@@ -1,0 +1,8 @@
+[wokwi]
+version = 1
+firmware = 'chips/spi-flash.chip.wasm'
+elf = 'chips/spi-flash.elf'
+
+[[chip]]
+name = 'spi-flash'
+binary = 'chips/spi-flash.chip.wasm'

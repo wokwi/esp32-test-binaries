@@ -1,0 +1,15 @@
+{
+  "name": "spi-flash",
+  "author": "Uri Shaked",
+  "pins": [
+    "MOSI",
+    "MISO",
+    "SCK",
+    "CS",
+    "VCC",
+    "GND",
+    "",
+    ""
+  ],
+  "controls": []
+}
