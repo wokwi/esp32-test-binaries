@@ -53,6 +53,7 @@ build latest components/esp_driver_pcnt/test_apps/pulse_cnt "esp32 esp32s2 esp32
 build latest components/esp_driver_spi/test_apps/master "$ALL_CHIPS"
 build latest components/esp_driver_uart/test_apps/uart "$ALL_CHIPS"
 build latest components/esp_psram/test_apps/psram "esp32 esp32s2 esp32s3 esp32p4"
+build latest components/esp_timer/test_apps "$ALL_CHIPS"
 build latest components/esp_wifi/test_apps/wifi_function "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
 build latest components/hal/test_apps/crypto "$ALL_CHIPS"
 build latest components/mbedtls/test_apps "$ALL_CHIPS"
