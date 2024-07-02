@@ -5,7 +5,7 @@ import pytest
 
 
 @pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6"])
-def test_hello_world(chip: str):
+def test_wifi_function(chip: str):
 
     # Run the Wokwi CLI
     result = subprocess.run(

@@ -19,7 +19,7 @@ expected_text = {
 @pytest.mark.parametrize(
     "chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"]
 )
-def test_hello_world(chip: str):
+def test_adc(chip: str):
 
     # Run the Wokwi CLI
     result = subprocess.run(
