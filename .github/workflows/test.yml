@@ -36,10 +36,16 @@ jobs:
 
       - name: Test on Wokwi
         working-directory: test
-        run: pytest test_hello_world.py
+        run: pytest test_hello_world.py --report-log test_hello_world.json
         env:
           IDF_VERSION: ${{ matrix.idf_version }}
           WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-hello-world-${{ matrix.idf_version }}-results
+          path: test/test_hello_world.json
 
   run-tests:
     name: test-${{ matrix.test_name }}
@@ -47,7 +53,6 @@ jobs:
     strategy:
       matrix:
         test_name:
-          - hello_world
           - psram
           - crypto
           - adc
@@ -77,6 +82,26 @@ jobs:
 
       - name: Test on Wokwi
         working-directory: test
-        run: pytest test_${{ matrix.test_name }}.py
+        run: pytest test_${{ matrix.test_name }}.py --report-log test_${{ matrix.test_name }}.json
         env:
           WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-${{ matrix.test_name }}-results
+          path: test/test_${{ matrix.test_name }}.json
+
+  report:
+    needs: [test-hello-world, run-tests]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: test
+          merge-multiple: true
+      - name: Generate test report
+        run: python test/generate_report.py >> $GITHUB_STEP_SUMMARY
