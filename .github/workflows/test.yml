@@ -41,8 +41,24 @@ jobs:
           IDF_VERSION: ${{ matrix.idf_version }}
           WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
 
-  test-psram:
+  run-tests:
+    name: test-${{ matrix.test_name }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test_name:
+          - hello_world
+          - psram
+          - crypto
+          - adc
+          - pcnt
+          - wifi_function
+          - spi_master
+          - nvs_flash
+          - i2c
+          - uart
+          - timer
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
 
@@ -61,222 +77,6 @@ jobs:
 
       - name: Test on Wokwi
         working-directory: test
-        run: pytest test_psram.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-crypto:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_crypto.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-adc:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_adc.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-pcnt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_pcnt.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-wifi-function:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_wifi_function.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-spi-master:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_spi_master.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-nvs-flash:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_nvs_flash.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-i2c:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_i2c.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-uart:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_uart.py
-        env:
-          WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
-
-  test-timer:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-      - run: pip install -r test/requirements.txt
-
-      - name: Run a Wokwi CI server
-        uses: wokwi/wokwi-ci-server-action@v1
-
-      - name: Install Wokwi CLI
-        run: curl -L https://wokwi.com/ci/install.sh | sh
-
-      - name: Test on Wokwi
-        working-directory: test
-        run: pytest test_timer.py
+        run: pytest test_${{ matrix.test_name }}.py
         env:
           WOKWI_CLI_TOKEN: ${{ secrets.WOKWI_CLI_TOKEN }}
