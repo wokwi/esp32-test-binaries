@@ -53,16 +53,17 @@ jobs:
     strategy:
       matrix:
         test_name:
-          - psram
-          - crypto
           - adc
-          - pcnt
-          - wifi_function
-          - spi_master
-          - nvs_flash
+          - crypto
+          - gptimer
           - i2c
-          - uart
+          - nvs_flash
+          - pcnt
+          - psram
+          - spi_master
           - timer
+          - uart
+          - wifi_function
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
