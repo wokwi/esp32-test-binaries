@@ -46,6 +46,7 @@ for APP in $APPS; do
 done
 
 build latest components/driver/test_apps/twai "$ALL_CHIPS_BUT_C2"
+build latest components/esp_driver_gpio/test_apps/gpio "$ALL_CHIPS"
 build latest components/esp_driver_gptimer/test_apps/gptimer "$ALL_CHIPS"
 build latest components/esp_driver_i2c/test_apps/i2c_test_apps "$ALL_CHIPS"
 build latest components/esp_driver_i2s/test_apps/i2s "$ALL_CHIPS_BUT_C2"
