@@ -31,13 +31,18 @@ def extract_test_results(report_file: str):
                     continue
 
                 stdout = stdout_section[1]
-                match = re.search(
+                matches = re.findall(
                     r"\r\n(\d+) Tests (\d+) Failures (\d+) Ignored", stdout
                 )
-                if match:
-                    total = int(match.group(1))
-                    fail = int(match.group(2))
-                    skip = int(match.group(3))
+                if matches:
+                    total = 0
+                    fail = 0
+                    skip = 0
+                    passed = 0
+                    for match in matches:
+                        total += int(match[0])
+                        fail += int(match[1])
+                        skip += int(match[2])
                     passed = total - fail - skip
                 else:
                     total = 1
