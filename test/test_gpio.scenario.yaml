@@ -6,6 +6,7 @@ steps:
   - wait-serial: 'Press ENTER to see the list of tests'
   - write-serial: "1\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
+  - wait-serial: "Enter next test, or 'enter' to see menu"
   - write-serial: "2\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
   - wait-serial: "Enter next test, or 'enter' to see menu"
