@@ -55,6 +55,7 @@ jobs:
         test_name:
           - adc
           - crypto
+          - efuse
           - gpio
           - gptimer
           - i2c
