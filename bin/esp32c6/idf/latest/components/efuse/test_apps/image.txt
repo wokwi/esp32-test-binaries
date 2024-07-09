@@ -1,0 +1,1 @@
+espressif/idf@sha256:f60d87df4e2bdc21d498206fe32abdf9bdb696c70c0efe093327b705a788201f
