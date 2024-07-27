@@ -8,7 +8,9 @@ import pytest
 )
 def test_spi_master(chip: str):
 
-    diagram_dir = "" if chip in ["esp32", "esp32s2", "esp32s3", "esp32c3"] else "../"
+    diagram_dir = (
+        "" if chip in ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6"] else "../"
+    )
 
     # Run the Wokwi CLI
     result = subprocess.run(
