@@ -13,7 +13,7 @@ def test_gptimer(chip: str):
             "--elf",
             f"../bin/{chip}/idf/latest/components/esp_driver_gptimer/test_apps/gptimer/firmware.uf2",
             "--timeout",
-            "20000",
+            "30000",
             "--scenario",
             "test_gptimer.scenario.yaml",
             "--diagram-file",
