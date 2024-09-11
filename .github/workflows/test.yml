@@ -107,5 +107,6 @@ jobs:
         with:
           path: test
           merge-multiple: true
+          pattern: '!test-hello-world-release-v*.*-results'
       - name: Generate test report
         run: python test/generate_report.py >> $GITHUB_STEP_SUMMARY
