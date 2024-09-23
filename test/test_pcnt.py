@@ -4,7 +4,9 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32c6", "esp32h2"])
+@pytest.mark.parametrize(
+    "chip", ["esp32", "esp32s2", "esp32s3", "esp32c6", "esp32h2", "esp32p4"]
+)
 def test_pcnt(chip: str):
 
     # Run the Wokwi CLI
