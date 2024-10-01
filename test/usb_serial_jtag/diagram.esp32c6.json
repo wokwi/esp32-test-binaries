@@ -8,7 +8,7 @@
       "id": "esp",
       "top": 5.29,
       "left": 4.12,
-      "attrs": { "serialInterface": "USB_SERIAL_JTAG" }
+      "attrs": { "serialInterface": "USB_SERIAL_JTAG", "cpuFrequency": "16" }
     }
   ],
   "connections": [],
