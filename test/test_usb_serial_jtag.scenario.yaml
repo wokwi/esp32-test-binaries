@@ -1,0 +1,9 @@
+name: UART Unity Tests
+version: 1
+author: Uri Shaked
+
+steps:
+  - wait-serial: "Press ENTER to see the list of tests"
+  - write-serial: "*\n"
+  - wait-serial: "Oh, hello world 1, this test is for testing message and parse in python, time 299"
+  - wait-serial: "1 Tests 0 Failures 0 Ignored"
