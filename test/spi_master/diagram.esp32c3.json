@@ -8,7 +8,7 @@
       "id": "esp",
       "top": 18.9,
       "left": -109.38,
-      "attrs": { "cpuFrequency": "24" }
+      "attrs": { "cpuFrequency": "28" }
     }
   ],
   "connections": [ [ "esp:TX", "$serialMonitor:RX", "", [] ], [ "esp:RX", "$serialMonitor:TX", "", [] ] ],
