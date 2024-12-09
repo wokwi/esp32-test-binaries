@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-hello-world:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         idf_version:
@@ -50,7 +50,7 @@ jobs:
 
   run-tests:
     name: test-${{ matrix.test_name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         test_name:
@@ -100,7 +100,7 @@ jobs:
 
   report:
     needs: [test-hello-world, run-tests]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: always()
     steps:
       - uses: actions/checkout@v4
