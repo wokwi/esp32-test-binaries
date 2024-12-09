@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        version: [release-v5.0, release-v5.1, release-v5.2, release-v5.3, latest]
+        version: [release-v5.0, release-v5.1, release-v5.2, release-v5.3, release-v5.4, latest]
     steps:
       - uses: actions/checkout@v4
       - name: Cache ccache data
