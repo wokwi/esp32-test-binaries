@@ -4,16 +4,27 @@
   "editor": "wokwi",
   "parts": [
     {
-      "type": "board-esp32-p4-function-ev",
+      "type": "board-esp32-p4-preview",
       "id": "esp",
-      "top": -17.23,
-      "left": -16.04,
+      "top": -18.32,
+      "left": -18.43,
       "attrs": { "psramSize": "4" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -134.2,
+      "left": -120.6,
+      "rotate": 180,
+      "attrs": { "travelLength": "30", "value": "512" }
     }
   ],
   "connections": [
-    ["esp:37", "$serialMonitor:RX", "", []],
-    ["esp:38", "$serialMonitor:TX", "", []]
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "pot1:GND", "black", [ "h-112.81", "v-238.91", "h5.2" ] ],
+    [ "esp:3V3", "pot1:VCC", "red", [ "h-16.81", "v49.09", "h144", "v-384" ] ],
+    [ "esp:49", "pot1:SIG", "green", [ "h21.59", "v-153.31" ] ]
   ],
   "serialMonitor": { "display": "terminal" },
   "dependencies": {}
