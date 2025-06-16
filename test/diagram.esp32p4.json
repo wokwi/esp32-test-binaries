@@ -8,7 +8,7 @@
       "id": "esp",
       "top": -18.32,
       "left": -18.43,
-      "attrs": { "psramSize": "4" }
+      "attrs": { "psramSize": "4", "psramType": "octal" }
     },
     {
       "type": "wokwi-slide-potentiometer",
