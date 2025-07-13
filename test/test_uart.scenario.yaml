@@ -4,7 +4,7 @@ author: Uri Shaked
 
 steps:
   - wait-serial: "Press ENTER to see the list of tests"
-  - write-serial: "*\n"
+  - write-serial: "![multi_device]\n"
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
@@ -21,4 +21,6 @@ steps:
   - write-serial: "uart\n"
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
-  - wait-serial: "8 Tests 0 Failures 0 Ignored"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "9 Tests 0 Failures 0 Ignored"
