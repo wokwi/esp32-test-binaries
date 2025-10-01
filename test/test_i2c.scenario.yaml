@@ -6,27 +6,27 @@ steps:
   - wait-serial: 'Press ENTER to see the list of tests'
   - write-serial: "2\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "3\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "4\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "5\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "6\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "7\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "8\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "9\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
-  - wait-serial: "Enter next test, or 'enter' to see menu"
+  - wait-serial: "Enter next test, or 'enter' to see menu\r\n"
   - write-serial: "10\n"
   - wait-serial: '1 Tests 0 Failures 0 Ignored'
