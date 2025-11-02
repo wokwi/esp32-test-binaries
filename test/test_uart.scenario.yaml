@@ -23,4 +23,6 @@ steps:
   - write-serial: "uart\n"
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
-  - wait-serial: "9 Tests 0 Failures 0 Ignored"
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+  - wait-serial: "10 Tests 0 Failures 0 Ignored"
