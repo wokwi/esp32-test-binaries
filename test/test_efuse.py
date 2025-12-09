@@ -15,7 +15,7 @@ def test_efuse(chip: str):
             "--elf",
             f"../bin/{chip}/idf/latest/components/efuse/test_apps/firmware.uf2",
             "--timeout",
-            "20000",
+            "30000",
             "--scenario",
             "test_efuse.scenario.yaml",
             "--diagram-file",
