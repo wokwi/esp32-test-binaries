@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "chip", ["esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32p4"]
+    "chip", ["esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32c5", "esp32p4"]
 )
 def test_usb_serial_jtag(chip: str):
 
