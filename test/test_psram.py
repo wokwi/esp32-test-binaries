@@ -4,7 +4,7 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32p4"])
+@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32c5", "esp32p4"])
 def test_psram(chip: str):
 
     # Run the Wokwi CLI
