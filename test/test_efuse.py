@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.mark.parametrize(
-    "chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32p4"]
+    "chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c5", "esp32c6", "esp32h2", "esp32p4"]
 )
 def test_efuse(chip: str):
 
