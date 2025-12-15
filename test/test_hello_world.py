@@ -9,6 +9,12 @@ IDF_VERSION = os.getenv("IDF_VERSION", "latest")
 ALL_CHIPS = ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c5", "esp32c6", "esp32h2", "esp32p4"]
 
 IDF_VERSIONS = {
+    "release-v4.4": ["esp32", "esp32s2", "esp32s3", "esp32c3"],
+    "release-v5.0": ["esp32", "esp32s2", "esp32s3", "esp32c3"],
+    "release-v5.1": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32h2"],
+    "release-v5.2": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"],
+    "release-v5.3": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"],
+    "release-v5.4": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32p4"],
     "latest": ALL_CHIPS,
 }
 
