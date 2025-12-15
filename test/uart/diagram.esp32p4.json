@@ -8,7 +8,7 @@
       "id": "esp",
       "top": -18.32,
       "left": -18.43,
-      "attrs": { "cpuFrequency": "32" }
+      "attrs": { "cpuFrequency": "72" }
     }
   ],
   "connections": [
