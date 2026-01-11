@@ -1,0 +1,8 @@
+name: Task Watchdog Tests
+version: 1
+author: Uri Shaked
+
+steps:
+  - wait-serial: 'Press ENTER to see the list of tests'
+  - write-serial: "[task_wdt]\n"
+  - wait-serial: ' Tests 0 Failures 0 Ignored'
