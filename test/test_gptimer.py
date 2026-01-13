@@ -3,7 +3,7 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32c3"])
+@pytest.mark.parametrize("chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"])
 def test_gptimer(chip: str):
 
     # Run the Wokwi CLI

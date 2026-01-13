@@ -4,5 +4,5 @@ author: Uri Shaked
 
 steps:
   - wait-serial: 'Press ENTER to see the list of tests'
-  - write-serial: "*\n"
+  - write-serial: "![etm]\n"
   - wait-serial: ' Tests 0 Failures 0 Ignored'
