@@ -71,6 +71,7 @@ jobs:
           - uart
           - usb_serial_jtag
           - wifi_function
+          - wifi_station
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
