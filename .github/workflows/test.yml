@@ -69,6 +69,7 @@ jobs:
           - task_wdt
           - timer
           - uart
+          - usb_otg
           - usb_serial_jtag
           - wifi_function
           - wifi_station

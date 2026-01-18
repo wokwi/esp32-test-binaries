@@ -1,0 +1,11 @@
+name: UART Unity Tests
+version: 1
+author: Uri Shaked
+
+steps:
+  - wait-serial: "Press ENTER to see the list of tests."
+  - delay: 10ms # wait for the prompt to be ready
+  - write-serial: "*\n"
+  - wait-serial: "usb_serial_test: Oh, hello world 2, this test is for testing message and parse in python, time 298"
+  - wait-serial: "usb_serial_test: Oh, hello world 1, this test is for testing message and parse in python, time 299"
+  - wait-serial: "3 Tests 0 Failures 0 Ignored"
