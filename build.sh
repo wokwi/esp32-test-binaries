@@ -1,7 +1,8 @@
 #!/bin/sh
 
-ALL_CHIPS="esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4"
-ALL_CHIPS_BUT_C2="esp32 esp32s2 esp32s3 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4"
+ALL_CHIPS="esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4 "
+ALL_CHIPS_BUT_C2="$(echo $ALL_CHIPS | sed 's/esp32c2 //')"
+ALL_CHIPS_BUT_ESP32="$(echo $ALL_CHIPS | sed 's/esp32 //')"
 
 build() {
   IDF_VERSION="$1"
@@ -61,6 +62,7 @@ build latest components/esp_driver_pcnt/test_apps/pulse_cnt "esp32 esp32s2 esp32
 build latest components/esp_driver_spi/test_apps/master "$ALL_CHIPS"
 build latest components/esp_driver_uart/test_apps/uart "$ALL_CHIPS"
 build latest components/esp_driver_usb_serial_jtag/test_apps/usb_serial_jtag "esp32s3 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4"
+build latest components/esp_hw_support/test_apps/dma "$ALL_CHIPS_BUT_ESP32"
 build latest components/esp_psram/test_apps/psram "esp32 esp32s2 esp32s3 esp32c5 esp32p4"
 build latest components/esp_system/test_apps/esp_system_unity_tests "$ALL_CHIPS"
 build latest components/esp_timer/test_apps "$ALL_CHIPS"
