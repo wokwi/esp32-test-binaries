@@ -58,6 +58,7 @@ jobs:
         test_name:
           - adc
           - crypto
+          - dma
           - efuse
           - gpio
           - gptimer
