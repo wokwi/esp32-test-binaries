@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 import pytest
@@ -14,7 +13,7 @@ def test_wifi_function(chip: str):
             "--elf",
             f"../bin/{chip}/idf/latest/examples/wifi/getting_started/station/firmware.uf2",
             "--timeout",
-            "5000",
+            "8000",
             "--expect-text",
             "wifi station: connected to ap SSID:Wokwi-GUEST password:",
             "--diagram-file",

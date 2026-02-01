@@ -40,14 +40,14 @@ for APP in $APPS; do
   build release-v5.3 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
   build release-v5.4 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
   build release-v5.5 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6"
-  build latest $APP "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6"
+  build latest $APP "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32p4"
   if [ "$APP" = "examples/get-started/hello_world" ]; then
     build release-v5.1 "$APP" "esp32h2"
     build release-v5.2 "$APP" "esp32h2"
     build release-v5.3 "$APP" "esp32h2"
     build release-v5.4 "$APP" "esp32h2 esp32p4"
     build release-v5.5 "$APP" "esp32h2 esp32p4"
-    build latest "$APP" "esp32h2 esp32p4"
+    build latest "$APP" "esp32h2"
   fi
 done
 

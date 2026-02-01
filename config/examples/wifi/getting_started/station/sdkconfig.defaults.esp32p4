@@ -1,0 +1,9 @@
+# ESP32-P4 Function EV Board uses ESP-Hosted for WiFi via on-board ESP32-C6 coprocessor
+# The C6 is connected via SDIO slot 1 with these GPIOs:
+#   CLK=18, CMD=19, D0=14, D1=15, D2=16, D3=17, RESET=54
+CONFIG_ESP_HOSTED_P4_DEV_BOARD_FUNC_BOARD=y
+CONFIG_ESP_HOSTED_SDIO_HOST_INTERFACE=y
+CONFIG_ESP_HOSTED_SDIO_OPTIMIZATION_RX_STREAMING_MODE=y
+
+# Disable task watchdog for testing
+CONFIG_ESP_TASK_WDT_EN=n
