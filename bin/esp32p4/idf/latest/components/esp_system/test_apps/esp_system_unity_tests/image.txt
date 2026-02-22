@@ -1,1 +1,1 @@
-espressif/idf@sha256:26f34c6cfe4d93cc511f11ba9e4b82e3c9b286b7fe6f5067ab2a5a47ebd8cb9f
+espressif/idf@sha256:4498ee5c117a32c10704d9e78cf0ce1047bfd16c594d607292afd53f20a68ddf
