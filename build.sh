@@ -1,8 +1,14 @@
 #!/bin/sh
 
-ALL_CHIPS="esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4 "
-ALL_CHIPS_BUT_C2="$(echo $ALL_CHIPS | sed 's/esp32c2 //')"
-ALL_CHIPS_BUT_ESP32="$(echo $ALL_CHIPS | sed 's/esp32 //')"
+ALL_CHIPS="esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32c61 esp32h2 esp32p4 "
+
+chips_without() {
+  RESULT="$ALL_CHIPS"
+  for EXCLUDE in $@; do
+    RESULT="$(echo $RESULT | sed "s/$EXCLUDE //")"
+  done
+  echo $RESULT
+}
 
 build() {
   IDF_VERSION="$1"
@@ -40,7 +46,7 @@ for APP in $APPS; do
   build release-v5.3 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
   build release-v5.4 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c6"
   build release-v5.5 "$APP" "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6"
-  build latest $APP "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32p4"
+  build latest $APP "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32c61 esp32p4"
   if [ "$APP" = "examples/get-started/hello_world" ]; then
     build release-v5.1 "$APP" "esp32h2"
     build release-v5.2 "$APP" "esp32h2"
@@ -51,30 +57,31 @@ for APP in $APPS; do
   fi
 done
 
-build latest components/driver/test_apps/twai "$ALL_CHIPS_BUT_C2"
+build latest components/driver/test_apps/twai "$(chips_without esp32c2 esp32c61)"
 build latest components/efuse/test_apps "$ALL_CHIPS"
 build latest components/esp_driver_gpio/test_apps/gpio "$ALL_CHIPS"
 build latest components/esp_driver_gptimer/test_apps/gptimer "$ALL_CHIPS"
 build latest components/esp_driver_i2c/test_apps/i2c_test_apps "$ALL_CHIPS"
-build latest components/esp_driver_i2s/test_apps/i2s "$ALL_CHIPS_BUT_C2"
+build latest components/esp_driver_i2s/test_apps/i2s "$(chips_without esp32c2)"
 build latest components/esp_driver_ledc/test_apps/ledc "$ALL_CHIPS"
 build latest components/esp_driver_pcnt/test_apps/pulse_cnt "esp32 esp32s2 esp32s3 esp32c5 esp32c6 esp32h2 esp32p4"
 build latest components/esp_driver_spi/test_apps/master "$ALL_CHIPS"
 build latest components/esp_driver_uart/test_apps/uart "$ALL_CHIPS"
-build latest components/esp_driver_usb_serial_jtag/test_apps/usb_serial_jtag "esp32s3 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4"
-build latest components/esp_hw_support/test_apps/dma "$ALL_CHIPS_BUT_ESP32"
-build latest components/esp_psram/test_apps/psram "esp32 esp32s2 esp32s3 esp32c5 esp32p4"
+build latest components/esp_driver_usb_serial_jtag/test_apps/usb_serial_jtag "esp32s3 esp32c3 esp32c5 esp32c6 esp32c61 esp32h2 esp32p4"
+build latest components/esp_hw_support/test_apps/dma "$(chips_without esp32)"
+build latest components/esp_psram/test_apps/psram "esp32 esp32s2 esp32s3 esp32c5 esp32c61 esp32p4"
 build latest components/esp_system/test_apps/esp_system_unity_tests "$ALL_CHIPS"
 build latest components/esp_timer/test_apps "$ALL_CHIPS"
-build latest components/esp_wifi/test_apps/wifi_function "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6"
-build latest components/hal/test_apps/crypto "$ALL_CHIPS"
+build latest components/esp_wifi/test_apps/wifi_function "esp32 esp32s2 esp32s3 esp32c2 esp32c3 esp32c5 esp32c6 esp32c61"
+# Path changed from components/hal/test_apps/crypto in IDF 6.0 on Jan 5, 2026 (5ee7af3afd)
+build latest components/esp_hal_security/test_apps/crypto "$ALL_CHIPS"
 build latest components/mbedtls/test_apps "$ALL_CHIPS"
 build latest components/nvs_flash/test_apps "$ALL_CHIPS"
 build latest examples/peripherals/adc/oneshot_read "$ALL_CHIPS"
 build latest examples/peripherals/i2c/i2c_simple "$ALL_CHIPS"
 build latest examples/peripherals/ledc/ledc_basic "$ALL_CHIPS"
-build latest examples/peripherals/rmt/led_strip "$ALL_CHIPS"
+build latest examples/peripherals/rmt/led_strip "$(chips_without esp32c61)"
 build latest examples/peripherals/spi_slave/sender "$ALL_CHIPS"
-build latest examples/peripherals/usb_serial_jtag/usb_serial_jtag_echo "esp32s3 esp32c3 esp32c5 esp32c6 esp32h2 esp32p4"
+build latest examples/peripherals/usb_serial_jtag/usb_serial_jtag_echo "esp32s3 esp32c3 esp32c5 esp32c6 esp32c61 esp32h2 esp32p4"
 build latest examples/peripherals/usb/device/tusb_serial_device "esp32s2 esp32s3 esp32p4"
 build latest examples/peripherals/usb/host/hid "esp32s2 esp32s3 esp32p4"
