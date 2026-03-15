@@ -3,7 +3,7 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("chip", ["esp32s3", "esp32c3", "esp32c6", "esp32h2"])
+@pytest.mark.parametrize("chip", ["esp32s3", "esp32c3", "esp32c5", "esp32c6", "esp32c61", "esp32h2"])
 def test_dma(chip: str):
 
     diagram_dir = "dma/" if chip in ["esp32s3"] else ""
