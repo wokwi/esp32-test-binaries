@@ -3,7 +3,6 @@ import subprocess
 import pytest
 
 
-# ESP32-P4 currently fails some of the tests, so we exclude it.
 @pytest.mark.parametrize(
     "chip", ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32p4"]
 )
@@ -14,7 +13,7 @@ def test_crypto(chip: str):
         [
             "wokwi-cli",
             "--elf",
-            f"../bin/{chip}/idf/latest/components/hal/test_apps/crypto/firmware.uf2",
+            f"../bin/{chip}/idf/latest/components/esp_hal_security/test_apps/crypto/firmware.uf2",
             "--timeout",
             "60000",
             "--expect-text",
