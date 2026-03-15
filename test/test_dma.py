@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 import pytest
@@ -14,7 +13,7 @@ def test_dma(chip: str):
         [
             "wokwi-cli",
             "--elf",
-            f"../bin/{chip}/idf/latest/components/esp_hw_support/test_apps/dma/firmware.uf2",
+            f"../bin/{chip}/idf/latest/components/esp_driver_dma/test_apps/dma/firmware.uf2",
             "--timeout",
             "5000",
             "--scenario",
