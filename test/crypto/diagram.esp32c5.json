@@ -3,7 +3,7 @@
   "author": "Uri Shaked",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-c5-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": { "cpuFrequency": "16" } }
+    { "type": "board-esp32-c5-devkitc-1", "id": "esp", "top": 0, "left": 0, "attrs": { "cpuFrequency": "20" } }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
