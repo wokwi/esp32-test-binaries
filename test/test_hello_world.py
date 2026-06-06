@@ -6,7 +6,7 @@ import pytest
 # read from process.env or use default values
 IDF_VERSION = os.getenv("IDF_VERSION", "latest")
 
-ALL_CHIPS = ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c5", "esp32c6", "esp32c61", "esp32h2", "esp32p4"]
+ALL_CHIPS = ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c5", "esp32c6", "esp32c61", "esp32h2", "esp32p4", "esp32s31"]
 
 IDF_VERSIONS = {
     "release-v4.4": ["esp32", "esp32s2", "esp32s3", "esp32c3"],
