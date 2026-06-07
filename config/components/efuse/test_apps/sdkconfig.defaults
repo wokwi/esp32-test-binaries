@@ -10,3 +10,10 @@ CONFIG_COMPILER_STACK_CHECK=y
 CONFIG_ESP_TASK_WDT_INIT=n
 
 CONFIG_EFUSE_VIRTUAL=y
+
+# Required by the "Test token dump" test, which calls esp_efuse_token_dump()
+# with the FROM_STAGED type. Without this option that call returns
+# ESP_ERR_NOT_SUPPORTED and the test aborts while batch write mode is still
+# enabled, leaving the batch flag stuck on and cascading failures into all
+# later efuse tests that burn and read back.
+CONFIG_EFUSE_ENABLE_STAGED_TOKEN_API=y
