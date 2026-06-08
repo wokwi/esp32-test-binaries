@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s31-function-coreboard-1",
+      "id": "esp",
+      "top": 3.06,
+      "left": 12.89,
+      "attrs": { "cpuFrequency": "16" }
+    }
+  ],
+  "connections": [ [ "esp:TX0", "$serialMonitor:RX", "", [] ], [ "esp:RX0", "$serialMonitor:TX", "", [] ] ],
+  "dependencies": {}
+}
