@@ -3,8 +3,8 @@ import subprocess
 import pytest
 
 
-@pytest.mark.parametrize("chip", ["esp32s2", "esp32s3", "esp32p4"])
-def test_usb_serial_jtag(chip: str):
+@pytest.mark.parametrize("chip", ["esp32s2", "esp32s3", "esp32p4", "esp32s31"])
+def test_usb_otg(chip: str):
 
     # Run the Wokwi CLI
     result = subprocess.run(
