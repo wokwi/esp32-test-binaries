@@ -7,6 +7,7 @@ import re
 def extract_test_results(report_file: str):
     counts = {}
     current_device = None
+    call_outcomes = {}
     with open(report_file, "r") as f:
         for line in f:
             try:
@@ -18,6 +19,11 @@ def extract_test_results(report_file: str):
                 location = data.get("location")
                 if location:
                     current_device = location[-1].split("[")[1].split("]")[0]
+                # The pass/fail result lives on the "call" phase. The "teardown"
+                # report (used below for the captured stdout) always reports
+                # "passed", so remember the real outcome here.
+                if data.get("when") == "call":
+                    call_outcomes[current_device] = data.get("outcome")
 
             if (
                 data.get("$report_type") == "TestReport"
@@ -45,10 +51,11 @@ def extract_test_results(report_file: str):
                         skip += int(match[2])
                     passed = total - fail - skip
                 else:
+                    outcome = call_outcomes.get(current_device, data.get("outcome"))
                     total = 1
-                    fail = int(data.get("outcome") == "failed")
-                    skip = int(data.get("outcome") == "skipped")
-                    passed = int(data.get("outcome") == "passed")
+                    fail = int(outcome == "failed")
+                    skip = int(outcome == "skipped")
+                    passed = int(outcome == "passed")
                 summary = []
                 if passed:
                     summary.append(f"✅ {passed}")
