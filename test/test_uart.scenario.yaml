@@ -5,26 +5,61 @@ author: Uri Shaked
 steps:
   - wait-serial: "Press ENTER to see the list of tests"
   - write-serial: "![multi_device]\n"
+
+  # Test 1: uart_wait_tx_done is not blocked when ticks_to_wait=0
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 2: uart get baud-rate
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 3: uart tx data with break
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 4: uart general API test
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 5: uart read write test
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 6: uart tx with ringbuffer test
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 7: uart tx ring buffer free space test
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 8: uart int state restored after flush
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 9: uart in one-wire mode
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+
+  # Test 10: uart software flow control (XON/XOFF)
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
+  # Part 1: host sends XOFF (0x13) to pause the transmitter, then XON (0x11) to resume it.
+  - wait-serial: "to stop UART transmission"
+  - write-serial: "\x13"
+  - wait-serial: "to start UART transmission"
+  - write-serial: "\x11"
+  # Part 2: host fills the RX FIFO past the XOFF threshold (>40 bytes) with benign data.
+  - wait-serial: "fill RX FIFO"
+  - write-serial: "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+
+  # Test 11: uart auto baud rate detection
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
-  - wait-serial: "11 Tests 0 Failures 0 Ignored"
+
+  # Test 12: uart rx glitch filter
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+
+  - wait-serial: "12 Tests 0 Failures 0 Ignored"
