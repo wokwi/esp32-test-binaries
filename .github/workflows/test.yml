@@ -14,11 +14,11 @@ jobs:
         idf_version:
           - release-v4.4
           - release-v5.0
-          - release-v5.1
-          - release-v5.2
           - release-v5.3
           - release-v5.4
           - release-v5.5
+          - release-v6.0
+          - release-v6.1
           - latest
       fail-fast: false
     steps:

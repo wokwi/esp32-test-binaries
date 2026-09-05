@@ -11,11 +11,11 @@ ALL_CHIPS = ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c5", "esp32c6", "es
 IDF_VERSIONS = {
     "release-v4.4": ["esp32", "esp32s2", "esp32s3", "esp32c3"],
     "release-v5.0": ["esp32", "esp32s2", "esp32s3", "esp32c3"],
-    "release-v5.1": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32h2"],
-    "release-v5.2": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"],
     "release-v5.3": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2"],
     "release-v5.4": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c6", "esp32h2", "esp32p4"],
     "release-v5.5": ["esp32", "esp32s2", "esp32s3", "esp32c2", "esp32c3", "esp32c5", "esp32c6", "esp32h2", "esp32p4"],
+    "release-v6.0": ["esp32", "esp32s2", "esp32s3", "esp32c2", "esp32c3", "esp32c5", "esp32c6", "esp32c61", "esp32h2", "esp32p4"],
+    "release-v6.1": ALL_CHIPS,
     "latest": ALL_CHIPS,
 }
 
