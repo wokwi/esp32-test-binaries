@@ -34,15 +34,19 @@ steps:
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
 
-  # Test 8: uart int state restored after flush
+  # Test 8: uart write blocks when tx ring buffer is full
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
 
-  # Test 9: uart in one-wire mode
+  # Test 9: uart int state restored after flush
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
 
-  # Test 10: uart software flow control (XON/XOFF)
+  # Test 10: uart in one-wire mode
+  - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
+  - write-serial: "uart\n"
+
+  # Test 11: uart software flow control (XON/XOFF)
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
   # Part 1: host sends XOFF (0x13) to pause the transmitter, then XON (0x11) to resume it.
@@ -54,12 +58,12 @@ steps:
   - wait-serial: "fill RX FIFO"
   - write-serial: "UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
 
-  # Test 11: uart auto baud rate detection
+  # Test 12: uart auto baud rate detection
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
 
-  # Test 12: uart rx glitch filter
+  # Test 13: uart rx glitch filter
   - wait-serial: "Waiting for signal: [select to test 'uart' or 'lp_uart' port]!"
   - write-serial: "uart\n"
 
-  - wait-serial: "12 Tests 0 Failures 0 Ignored"
+  - wait-serial: "13 Tests 0 Failures 0 Ignored"
