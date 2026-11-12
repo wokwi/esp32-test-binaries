@@ -12,7 +12,7 @@ expected_text = {
     "esp32c3": expected_adc1_3,
     "esp32c5": expected_adc1_3,
     "esp32c6": expected_adc1_3,
-    "esp32c61": "EXAMPLE: ADC1 Channel[2] Raw Data: 2050",
+    "esp32c61": expected_adc1_3,
     "esp32h2": expected_adc1_3,
     "esp32p4": expected_adc2_0,
 }
